@@ -131,3 +131,6 @@ SELECT ISNULL(PedidoGuilherme.PedidoCodigo, 0) AS Pedido,
 FROM PedidoGuilherme
     INNER JOIN PossuiGuilherme ON (PedidoGuilherme.PedidoCodigo = PossuiGuilherme.PedidoCodigo)
     RIGHT JOIN ItemGuilherme ON (ItemGuilherme.ItemCodigo = PossuiGuilherme.ItemCodigo);
+
+-- Obter as informações da tabela
+-- sp_help 'ItemGuilherme'
