@@ -69,6 +69,31 @@ INSERT PossuiGuilherme
 VALUES
     (100, 2, 1);
 
+-- Alterando o Item para conter valor para Unidade
+UPDATE ItemGuilherme SET Unidade = 'KG'
+ WHERE ItemCodigo = 1;
+
+-- Alterando o Item para conter valor para Unidade
+UPDATE ItemGuilherme SET Unidade = 'Grama'
+ WHERE ItemCodigo = 2;
+
+-- Alterando o Item para conter valor para Unidade com condição utilizando relacionamento
+UPDATE ItemGuilherme SET Unidade = 'Grama'
+  FROM ItemGuilherme
+ INNER JOIN PossuiGuilherme
+    ON ItemGuilherme.ItemCodigo = PossuiGuilherme.ItemCodigo
+ WHERE ItemGuilherme.ItemCodigo = 2
+   AND PossuiGuilherme.Quantidade > 0;
+
+-- Deletando o Item com condição utilizando relacionamento
+SELECT *
+--DELETE ItemGuilherme
+  FROM ItemGuilherme
+ INNER JOIN PossuiGuilherme
+    ON ItemGuilherme.ItemCodigo = PossuiGuilherme.ItemCodigo
+ WHERE ItemGuilherme.ItemCodigo = 2
+   AND PossuiGuilherme.Quantidade > 0;
+
 -- Busca todos os Pedidos
 SELECT *
 FROM PedidoGuilherme;
