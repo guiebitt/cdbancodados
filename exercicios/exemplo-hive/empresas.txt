@@ -1,0 +1,12 @@
+CREATE EXTERNAL TABLE IF NOT EXISTS Empresas_Guilherme(
+EmpresaID STRING, NomeEmpresa STRING, Categoria STRING,
+Email STRING, Cep STRING, Cidade STRING, Estado STRING,
+Bairro STRING, UF STRING, PessoaJuridica BOOLEAN, Avaliacao STRING)
+COMMENT 'Empresas'
+ROW FORMAT DELIMITED
+FIELDS TERMINATED BY ';'
+STORED AS TEXTFILE
+LOCATION '/apps/hive/warehouse/guilherme-empresas';
+
+
+SELECT * FROM empresas_guilherme WHERE Avaliacao <> '' and Avaliacao < '2' LIMIT 100;
